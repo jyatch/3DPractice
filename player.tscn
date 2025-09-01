@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://chby8nkljmbrq"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_8wfdr"]
+[ext_resource type="PackedScene" uid="uid://b0a882ywufw2s" path="res://hotbar.tscn" id="2_6on85"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya3ra"]
+albedo_color = Color(1, 0.482353, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3jynn"]
+material = SubResource("StandardMaterial3D_ya3ra")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o2lwa"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_8wfdr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_3jynn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_o2lwa")
+
+[node name="Hotbar" parent="." instance=ExtResource("2_6on85")]
+unique_name_in_owner = true
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://db7bfva4fk4ka"]
+
+[ext_resource type="PackedScene" uid="uid://chby8nkljmbrq" path="res://player.tscn" id="1_abts6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g7od3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_i5j8y"]
+sky_material = SubResource("ProceduralSkyMaterial_g7od3")
+
+[sub_resource type="Environment" id="Environment_fvv43"]
+background_mode = 2
+sky = SubResource("Sky_i5j8y")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fvv43")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.984807, -0.171012, 0.0301565, 0.173651, -0.969846, 0.17101, 2.46717e-06, 0.173648, 0.984808, 0, 5.5, 27.5)
+shadow_enabled = true
+
+[node name="Tavern" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Wall1" type="CSGBox3D" parent="Tavern"]
+transform = Transform3D(12.825, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 5)
+size = Vector3(1, 4, 1)
+
+[node name="Wall2" type="CSGBox3D" parent="Tavern"]
+transform = Transform3D(-5.60599e-07, 0, -1, 0, 1, 0, 12.825, 0, -4.37114e-08, -6, 2.5, 11)
+size = Vector3(1, 4, 1)
+
+[node name="Wall3" type="CSGBox3D" parent="Tavern"]
+transform = Transform3D(12.825, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 17)
+size = Vector3(1, 4, 1)
+
+[node name="Wall4" type="CSGBox3D" parent="Tavern"]
+transform = Transform3D(-5.60599e-07, 0, -1, 0, 1, 0, 12.825, 0, -4.37114e-08, 6, 2.5, 11)
+size = Vector3(1, 4, 1)
+
+[node name="Door" type="CSGCylinder3D" parent="Tavern"]
+transform = Transform3D(3.52, 0, 0, 0, -4.37114e-08, 6.384, 0, -1, -2.79054e-07, 0, 0.5, 5)
+operation = 2
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+use_collision = true
+
+[node name="Player" parent="." instance=ExtResource("1_abts6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
