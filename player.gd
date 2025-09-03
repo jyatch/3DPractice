@@ -30,12 +30,8 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	# Pickup controls
-	if raycast.is_colliding():
-		if Input.is_action_just_pressed("pickup"):
-			var obj = raycast.get_collider()
-			if obj.is_in_group("items") and obj.has_method("picked_up"):
-				obj.picked_up()
+	if Input.is_action_just_pressed("pickup"):
+		print("hi")
 	
 	# hotbar controls
 	for i in range(1, 5):

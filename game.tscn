@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://chby8nkljmbrq" path="res://player.tscn" id="1_abts6"]
 [ext_resource type="PackedScene" uid="uid://c7t22sl6j55vd" path="res://table.tscn" id="2_c2x5c"]
-[ext_resource type="PackedScene" uid="uid://d2wlvwyt65fcw" path="res://tankard.tscn" id="2_iiyk0"]
+[ext_resource type="PackedScene" uid="uid://bvx0kkr0jrey7" path="res://drink.tscn" id="3_b6yhp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g7od3"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -55,12 +55,9 @@ use_collision = true
 
 [node name="Player" parent="." instance=ExtResource("1_abts6")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
-speed = 5.0
-jump_velocity = 4.5
-mouse_sensitivity = 0.001
-
-[node name="Tankard" parent="." instance=ExtResource("2_iiyk0")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.35188, 1.46134, 9.57925)
 
 [node name="Table" parent="." instance=ExtResource("2_c2x5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95207, 1.27615, 9.63957)
+
+[node name="drink" parent="." instance=ExtResource("3_b6yhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97139, 1.83406, 9.64571)

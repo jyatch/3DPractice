@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvx0kkr0jrey7"]
+
+[ext_resource type="Script" path="res://drink.gd" id="1_tlqvh"]
+
+[node name="drink" type="Node3D"]
+script = ExtResource("1_tlqvh")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
