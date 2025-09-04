@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvx0kkr0jrey7"]
+[gd_scene load_steps=3 format=3 uid="uid://c4i6lqb0gpoqu"]
 
+[ext_resource type="PackedScene" uid="uid://csak32ield861" path="res://item.tscn" id="1_3k377"]
 [ext_resource type="Script" path="res://drink.gd" id="1_tlqvh"]
 
-[node name="drink" type="Node3D"]
+[node name="drink" instance=ExtResource("1_3k377")]
 script = ExtResource("1_tlqvh")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1.43347, 0, 0, 0, 1.43347, 0, 0, 0, 1.43347, 0, 0, 0)
+
+[node name="MeshParent" type="Node3D" parent="." index="1"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="MeshParent" index="0"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshParent/CSGCombiner3D" index="0"]

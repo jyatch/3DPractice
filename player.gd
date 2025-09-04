@@ -31,7 +31,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	if Input.is_action_just_pressed("pickup"):
-		print("hi")
+		if $Head/Camera3D/RayCast3D.is_colliding():
+			var target = $Head/Camera3D/RayCast3D.get_collider()
+			print(target)
 	
 	# hotbar controls
 	for i in range(1, 5):
