@@ -1,9 +1,5 @@
 extends CharacterBody3D
 
-# Now that we have the hotbar, I want the player to be able to pick things up. 
-# For now, we can just make a drink that they can grab. We will make a table 
-# With the CSG
-
 @export var speed: float = 5.0
 @export var jump_velocity: float = 4.5
 @export var mouse_sensitivity: float = 0.001
@@ -33,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pickup"):
 		if $Head/Camera3D/RayCast3D.is_colliding():
 			var target = $Head/Camera3D/RayCast3D.get_collider()
-			print(target)
+			if target is item:
+				$Hotbar.add_to_hotbar(target)
+				target.pickup()
 	
 	# hotbar controls
 	for i in range(1, 5):

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blx0dgicemg0g"]
+[gd_scene load_steps=3 format=3 uid="uid://blx0dgicemg0g"]
 
 [ext_resource type="Texture2D" uid="uid://bkqpl85ada3su" path="res://icon.svg" id="1_cg6ta"]
+[ext_resource type="Script" path="res://hotbar_slot.gd" id="1_lk078"]
 
 [node name="HotbarSlot" type="Control"]
 custom_minimum_size = Vector2(128, 128)
@@ -11,8 +12,10 @@ offset_bottom = 64.0
 pivot_offset = Vector2(32, 32)
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("1_lk078")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,11 +26,13 @@ texture = ExtResource("1_cg6ta")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

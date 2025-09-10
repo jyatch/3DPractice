@@ -5,8 +5,6 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_f4hke"]
 
 [node name="item" type="Area3D"]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_d5vwu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
